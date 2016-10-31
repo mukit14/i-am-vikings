@@ -1,7 +1,5 @@
-Rails.application.config.middleware.use OmniAuth::Builder do
-    app_id = ENV['app_id']
-    secret = ENV['secret']
 
-    provider :facebook, app_id, secret, scope: 'publish_actions',
+Rails.application.config.middleware.use OmniAuth::Builder do
+  provider :facebook, FACEBOOK_CONFIG['app_id'], FACEBOOK_CONFIG['secret'], 'publish_actions',
                 :image_size => {width: 500, height: 500}
 end
